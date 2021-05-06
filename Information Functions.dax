@@ -1,0 +1,14 @@
+﻿isnumber=
+ISNUMBER('Calendar'[Week_ID])  -- Check if the output is a number
+
+
+
+istext=
+
+ISTEXT('Calendar'[Week_Desc])
+
+-- Other types 
+ISLOGICAL
+ISEVEN
+ISBLANK
+ISODD
