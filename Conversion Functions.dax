@@ -1,2 +1,5 @@
 ﻿/* currency, format,date, time,datevalue,value */
 
+Total Revenue=
+CURRENCY(
+'Sales by Store'[quantity_sold] * 'Sales by Store'[unit_price])
