@@ -3,3 +3,21 @@
 Total Revenue=
 CURRENCY(
 'Sales by Store'[quantity_sold] * 'Sales by Store'[unit_price])
+
+
+
+Transaction_Date=
+format('Sales by Store'[transaction_date],"yyy-mm-dd")
+
+
+
+Cost=
+
+var currencycost=
+
+CURRENCY('Product Lookup'[current_cost])
+
+
+RETURN
+
+round(currencycost,2)
