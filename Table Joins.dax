@@ -56,3 +56,66 @@ FILTER(VALUES(
 )
 
 
+
+
+---- Intersect
+New'New Employees (INTERSECT)'=
+
+INTERSECT(
+
+ADDCOLUMNS(
+
+'Employee Lookup',
+
+"Revenue",
+
+[Customer Sales]
+),
+
+ADDCOLUMNS(
+FILTER(
+'Employee Lookup',
+'Employee Lookup'[start_date] > DATE(2016,12,13)),
+"Revenue",
+
+[Customer Sales]
+)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
