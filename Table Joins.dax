@@ -44,6 +44,15 @@ FILTER(
 
 --or
 
+except demo=
 
+EXCEPT(
+
+'Customer Lookup',
+
+FILTER(VALUES(
+,
+'Customer Lookup'[customer_since] > DATE((2017,02,01)
+)
 
 
