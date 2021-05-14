@@ -1,0 +1,53 @@
+﻿CALCULATE Sum Quantity Sold = 
+CALCULATE(
+    SUM(
+        'Food Inventory'[quantity_sold]
+    )
+)
+
+
+
+
+Store 3 Sales of Whole Beans & Teas (CALCULATE) = 
+CALCULATE(
+    [Customer Sales],
+    'Store Lookup'[store_id] = 3,
+    'Product Lookup'[product_group] = "Whole Bean/Teas"
+)
+
+
+Store 8 Sales (KEEPFILTERS) = 
+CALCULATE(
+    [Customer Sales],
+    KEEPFILTERS(
+        'Store Lookup'[store_id] = 8
+    )
+)
+
+
+
+
+% of Store Sales (REMOVEFILTERS) = 
+VAR AllStoreSales = 
+CALCULATE(
+    [Customer Sales],
+    REMOVEFILTERS(
+        'Store Lookup'[store_id]
+    )
+)
+VAR Ratio = 
+DIVIDE(
+    [Customer Sales],
+    AllStoreSales
+)
+RETURN
+Ratio
+
+
+
+
+
+
+
+
+
