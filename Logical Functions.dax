@@ -1,0 +1,16 @@
+﻿/* Switch , Coalesce */
+
+year_half=
+
+switch(
+
+'calendar'[month_id],
+1,"1H",
+2,"1H",
+3,"1H",
+4,"1H",
+5,"1H",
+6,"1H",
+7,"2H",
+"-"
+)
