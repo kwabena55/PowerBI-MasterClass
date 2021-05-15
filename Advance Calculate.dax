@@ -1,4 +1,6 @@
-﻿CALCULATE Sum Quantity Sold = 
+﻿-- Calculate Functions
+
+CALCULATE Sum Quantity Sold = 
 CALCULATE(
     SUM(
         'Food Inventory'[quantity_sold]
