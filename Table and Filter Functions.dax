@@ -126,11 +126,35 @@ SUM(
     'Unsold Pastries'[quantity_sold]
 )
 -------------------------------------------------------------------------------
-
-
-
-
-
+Food Unsold (SUMMARIZE Table) = 
+SUMX(
+    'Unsold Pastries',
+    'Unsold Pastries'[quantity_start_of_day] - 'Unsold Pastries'[quantity_sold]
+)
+----------------------
+Lost Revenue (SUMMARIZE Table) = 
+SUMX(
+    'Unsold Pastries',
+    [Food Unsold (SUMMARIZE Table)] *'Unsold Pastries'[current_retail_price]
+)
+------------------------------------------------------------
+Quantity Sold (SELECTEDVALUE) = 
+DIVIDE(
+    [Customer Sales],
+    SELECTEDVALUE(
+        'Product Lookup'[current_retail_price]
+    )
+)
+-------------------------------------------------------------------
+Retail Price (SELECTEDVALUE) = 
+SELECTEDVALUE(
+    'Product Lookup'[current_retail_price]
+)
+----------------------------------------------------------
+Retail Price (SELECTEDVALUE) = 
+SELECTEDVALUE(
+    'Product Lookup'[current_retail_price]
+)
 
 
 
