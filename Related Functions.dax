@@ -2,4 +2,16 @@
 
 Product Group=
 RELATED('Product Lookup'[product_group]
+
 )
+
+
+
+wholesale cost=
+
+SUMX(
+
+
+'Sales by Store',
+
+'Sales by Store'[quantity_sold] * related('Product Lookup'[current_wholesale_price])
