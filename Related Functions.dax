@@ -1,1 +1,5 @@
 ﻿/* Related, UserRelationahip, TreatAS , RelatedTable etc */
+
+Product Group=
+RELATED('Product Lookup'[product_group]
+)
