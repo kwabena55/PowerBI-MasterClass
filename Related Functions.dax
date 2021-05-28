@@ -20,4 +20,11 @@ SUMX(
 
 -- RelatedTable( Only returns expression for records with relation)
 
-Number 
+Number of Food Items Made=
+
+SUMX(
+
+RELATEDTABLE('Food Inventory'),
+
+'Food Inventory'[quantity_start_of_day]
+)
