@@ -15,3 +15,9 @@ SUMX(
 'Sales by Store',
 
 'Sales by Store'[quantity_sold] * related('Product Lookup'[current_wholesale_price])
+
+
+
+-- RelatedTable( Only returns expression for records with relation)
+
+Number 
