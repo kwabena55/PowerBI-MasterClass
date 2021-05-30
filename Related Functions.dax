@@ -32,4 +32,9 @@ RELATEDTABLE('Food Inventory'),
 
 
 --UserRelationship ( Realtionship between Two Evwen when Inactive)
-syntax
+Quantity Sold=
+
+CALCULATE(
+[SUM Quantity Sold],
+USERELATIONSHIP(
+'Food Inventory'[baked_date],'Calendar'[Transaction_Date])
