@@ -28,3 +28,8 @@ RELATEDTABLE('Food Inventory'),
 
 'Food Inventory'[quantity_start_of_day]
 )
+
+
+
+--UserRelationship ( Realtionship between Two Evwen when Inactive)
+syntax
