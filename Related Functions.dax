@@ -76,3 +76,42 @@ TREATAS(
 storeid,
 'Store Lookup'[store_id]
 )
+
+
+-------------------------------sun beans but create a virtual reltionship bwtween calaenda =r and union demo using the calendar and month  name for  both tables
+Bean Goal (TREATAS) = 
+CALCULATE(
+    SUM(
+        'UNION Demo'[Bean/Teas Goal]
+    ),
+    TREATAS(
+        VALUES(
+            'Calendar',
+            'Calendar'[Year_ID]),
+            'UNION Demo'[Year]
+        ),
+        treatas(VALUES(
+        
+        'Calendar'[Month_Name]),
+        'UNION Demo'[Month]
+    )
+    )
+)
+
+
+---------------------------------
+Beverage Goal (TREATAS) = 
+CALCULATE(
+    SUM(
+        'UNION Demo'[Beverage Goal]
+    ),
+    TREATAS(
+        SUMMARIZE(
+            'Calendar',
+            'Calendar'[Year_ID],
+            'Calendar'[Month_Name]
+        ),
+        'UNION Demo'[Year],
+        'UNION Demo'[Month]
+    )
+)
