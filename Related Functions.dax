@@ -38,3 +38,41 @@ CALCULATE(
 [SUM Quantity Sold],
 USERELATIONSHIP(
 'Food Inventory'[baked_date],'Calendar'[Transaction_Date])
+
+
+
+
+
+-- Cross Filter ( Remember filter direction can be one,  both, none)
+Number of Employee=
+CALCULATE(
+COUNTROWS(
+VALUES(
+'Employee Lookup')
+),
+
+CROSSFILTER(
+
+'Sales by Store'[staff_id],
+'Employee Lookup'[staff_id],
+BOTH
+))
+
+
+-- Treat AS
+
+
+treatas Demo=
+var storedid=
+{"1",
+"2",
+"3"
+}
+
+
+RETURN
+
+TREATAS(
+storeid,
+'Store Lookup'[store_id]
+)
