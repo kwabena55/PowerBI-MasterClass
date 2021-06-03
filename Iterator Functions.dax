@@ -8,3 +8,23 @@ RELATEDTABLE('Sales by Store'),
 
 )
 
+
+
+customer sales 3=
+
+SUMX(
+
+VALUES('Product Lookup'),
+
+SUMX('Sales by Store',
+
+if(
+
+'Product Lookup'[product_id]= 'sales by store'[product_id]],
+'Sales by Store'[quantity_sold] * 'Sales by Store'[unit_price],
+
+)
+
+)
+
+)
