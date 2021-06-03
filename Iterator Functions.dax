@@ -1,1 +1,10 @@
-﻿
+﻿customer sales 2=
+
+SUMX('Product Lookup',
+RELATEDTABLE('Sales by Store'),
+'Sales by Store'[unit_price] * 'Sales by Store'[quantity_sold]
+
+)
+
+)
+
