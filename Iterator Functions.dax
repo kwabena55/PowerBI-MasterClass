@@ -38,4 +38,28 @@ AVERAGEX(
 
 
 ------------------------------------------------------------
+Moving Average (AVERAGEX) = 
+VAR LastTransactionDate = MAX('Calendar'[Transaction_Date])
+VAR AverageDay = 30
+VAR PeriodInVisual = 
+FILTER(
+    ALL(
+        'Calendar'[Transaction_Date]
+    ),
+    AND(
+        'Calendar'[Transaction_Date] > LastTransactionDate - AverageDay,
+        'Calendar'[Transaction_Date] <= LastTransactionDate
+    )
+)
+VAR OutPut =
+CALCULATE(
+    AVERAGEX(
+        'Calendar',
+        [Customer Sales]
+    ),
+    PeriodInVisual
+)
+RETURN
+OutPut
 
+------------------------------------------------------
