@@ -63,3 +63,18 @@ RETURN
 OutPut
 
 ------------------------------------------------------
+Rank of Customer Sales (RANKX) = 
+IF(
+    HASONEVALUE(
+        'Product Lookup'[product_category]
+    ),
+    RANKX(
+        ALL(
+            'Product Lookup'[product_category]
+        ),
+        [Customer Sales]
+    )
+)
+
+-----------------------------------------------------------
+
