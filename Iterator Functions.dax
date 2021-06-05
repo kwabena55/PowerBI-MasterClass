@@ -77,4 +77,38 @@ IF(
 )
 
 -----------------------------------------------------------
-
+Rank of Rounded Customer Sales (RANKX) = 
+IF(
+    HASONEVALUE(
+        'Product Lookup'[product_category]
+    ),
+    RANKX(
+        ALL(
+            'Product Lookup'[product_category]
+        ),
+        [Rounded Customer Sales],
+        ,DESC
+        ,Skip
+    )
+)
+------------------------------------------------------------------------
+Sales by Employee Name (CONCATENATEX) = 
+IF(
+    HASONEVALUE(
+        'Employee Lookup'[first_name]
+    ),
+    "Employee: " &
+    CONCATENATEX(
+        VALUES(
+            'Employee Lookup'[first_name]
+        ),
+        'Employee Lookup'[first_name] &
+        "-" &
+        FORMAT([% of Customer Sales (CONCATENATEX Assignment)], "Percent"),
+        ", ",
+        'Employee Lookup'[first_name],
+        ASC
+    ),
+    "Select a Single Employee"
+)
+-----------------------------------------------------------------
