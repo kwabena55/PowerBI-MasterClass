@@ -112,3 +112,15 @@ IF(
     "Select a Single Employee"
 )
 -----------------------------------------------------------------
+Selected Product Category (CONCATENATEX) = 
+"Showing Sales For: " &
+CONCATENATEX(
+    VALUES(
+        'Product Lookup'[product_category]
+    ),
+    'Product Lookup'[product_category],
+    ", ",
+    'Product Lookup'[product_category],
+    ASC
+)
+-------------------------------------
