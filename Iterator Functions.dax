@@ -122,5 +122,5 @@ CONCATENATEX(
     ", ",
     'Product Lookup'[product_category],
     ASC
-)
+)----
 --------------------------------------------
