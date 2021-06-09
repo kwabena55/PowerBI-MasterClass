@@ -206,5 +206,36 @@ FILTER(
 )
 
 
+-------------------------------------------------------------------
+SUMMARIZE Demo=
+
+SUMMARIZE(
+
+filter(
+'Sales by Store',
+'Sales by Store'[quantity_sold] >=3
+),
+
+'Sales by Store'[customer_id],
+"quantity sold",
+'Sales by Store'[quantity_sold]
+)
+
+--or
+SUMMARIZE Demo=
+
+SUMMARIZE(
+
+filter(
+'Sales by Store',
+'Sales by Store'[quantity_sold] >=3
+),
+
+'Sales by Store'[customer_id],,
+'Sales by Store'[quantity_sold]
+)
+
+
+
 
 
