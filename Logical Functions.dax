@@ -19,3 +19,59 @@ switch(
 
 -- Coalesce
 
+Customer Sales LY (COALESCE) = 
+VAR Customer_Sales_LY = 
+CALCULATE(
+    [Customer Sales],
+    DATEADD(
+        'Calendar'[Transaction_Date],
+        -1,
+        Year
+    )
+)
+RETURN
+COALESCE(
+    Customer_Sales_LY,
+    "-"
+)
+
+
+
+Quarter & Year = 
+VAR Q1 = 'Calendar'[Month_ID] IN {1,2,3}
+VAR Q2 = 'Calendar'[Month_ID] IN {4,5,6}
+VAR Q3 = 'Calendar'[Month_ID] IN {7,8,9}
+VAR Q4 = 'Calendar'[Month_ID] IN {10,11,12}
+
+RETURN
+SWITCH(
+    TRUE(),
+    Q1, "Q1" & "-" & 'Calendar'[Year_ID],
+    Q2, "Q2" & "-" & 'Calendar'[Year_ID],
+    Q3, "Q3" & "-" & 'Calendar'[Year_ID],
+    Q4, "Q4" & "-" & 'Calendar'[Year_ID],
+    "-"
+)
+
+
+
+
+Quarter and Year=
+var Q1= 'CALENDAR'[MONTH_id] IN {1,2,3}
+var Q2= 'CALENDAR'[MONTH_id] IN {4,5,6}
+var Q3= 'CALENDAR'[MONTH_id] IN {7,8,9}
+var Q4= 'CALENDAR'[MONTH_id] IN {10,11,12}
+
+
+RETURN
+
+
+SWITCH(TRUE(),
+
+Q1, "QI" & "--"  & 'CALENDAR'[YEAR],
+"NO VALUE"
+)
+
+
+
+
