@@ -184,6 +184,26 @@ FILTER(
 'Employee Lookup'[first_name] & "--"  & 'Employee Lookup'[LASTNAME] & "--" 'Employee Lookup'[location]
 )
 
+-------------------------------------------------------------------------
+/* the difference between select columns and Add columns is just that addcolumns adds the newly created columns to the base table 
+ Almost the same as calculated columns or table
+
+*/
+
+
+select columns2=
+
+ADDCOLUMNS(
+
+FILTER(
+'Employee Lookup',
+'Employee Lookup'[staff_id] IN {6,16,31}
+),
+"EMPLOYEE_ID",
+'Employee Lookup'[staff_id],
+"MANAGER NAME & STORE",
+'Employee Lookup'[first_name] & "--"  & 'Employee Lookup'[LASTNAME] & "--" 'Employee Lookup'[location]
+)
 
 
 
