@@ -168,6 +168,23 @@ SELECTCOLUMNS('Product Lookup',
 
 
 
+---------------------------------------------
+
+select columns2=
+
+SELECTCOLUMNS(
+
+FILTER(
+'Employee Lookup',
+'Employee Lookup'[staff_id] IN {6,16,31}
+),
+"EMPLOYEE_ID",
+'Employee Lookup'[staff_id],
+"MANAGER NAME & STORE",
+'Employee Lookup'[first_name] & "--"  & 'Employee Lookup'[LASTNAME] & "--" 'Employee Lookup'[location]
+)
+
+
 
 
 
