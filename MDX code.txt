@@ -1,0 +1,9 @@
+# Some Short Cuts
+ctrl + G == GO to Line
+
+
+## MDX
+select measures.[internet sales amount] on Columns,
+product.[Product Categories]. [Category] on rows
+
+from [Adeventure Works]
