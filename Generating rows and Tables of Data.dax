@@ -1,1 +1,30 @@
-﻿
+﻿---Generate Series
+data= GENERATESERIES(1,10,2)
+
+
+
+-- ROW  ( Follows a Key value Style)
+
+TAble 2=
+ROW("Customer Sales", [% of All Baked],
+    "Items Ordered", [Bean % to Goal]
+    )
+    
+    
+    
+    
+    -----DATATABLE ( jUST LIKE YOU Creating a table)
+    
+   DATATABLE(
+  "Test Number", Integer,
+  "Heads",String,
+  "Trial",Integer,
+  {
+  
+  { 1,"soloo",1},
+  {2,"korkor",2},
+  {3,"Tails",3}
+ }
+ 
+ 
+ )
