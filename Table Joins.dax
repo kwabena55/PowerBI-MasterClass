@@ -1,0 +1,16 @@
+﻿/* TAble Joins */
+
+cross join demo=
+CROSSJOIN(
+VALUES('Product Lookup'[product_category]
+),
+
+values('Product Lookup'[product_group]
+),
+
+FILTER(VALUES(
+'Store Lookup',
+
+'Store Lookup'[store_id]=3
+)
+)
