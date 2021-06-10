@@ -14,3 +14,36 @@ FILTER(VALUES(
 'Store Lookup'[store_id]=3
 )
 )
+
+
+-- Union
+
+Union Demo=
+
+union('Target Sales - April 2019 (DATATABLE)',
+
+'Target Sales - March 2019 (DATATABLE)'
+
+)
+
+
+
+--Except
+
+except demo=
+
+EXCEPT(
+
+'Customer Lookup',
+
+FILTER(
+'Customer Lookup',
+'Customer Lookup'[customer_since] > DATE((2017,02,01)
+
+
+
+--or
+
+
+
+
