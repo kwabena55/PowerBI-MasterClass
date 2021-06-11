@@ -1,0 +1,90 @@
+﻿% of Total Sales = 
+VAR AllSales =
+CALCULATE(
+    [Customer Sales],
+    ALL(
+        'Sales by Store'
+    )
+)
+VAR Ratio =
+DIVIDE(
+    [Customer Sales],
+    AllSales
+)
+Return
+Ratio
+
+-------------------------------------------------
+Customer Sales Last Month (PARALLELPERIOD) = 
+CALCULATE(
+    [Customer Sales],
+    PARALLELPERIOD(
+        'Calendar'[Transaction_Date],
+        -1,
+        MONTH
+    )
+)
+-------------------------------------------------------
+Customer Sales MoM % Change = 
+DIVIDE(
+    ([Customer Sales] - [Customer Sales Last Month (PARALLELPERIOD)]),
+    [Customer Sales Last Month (PARALLELPERIOD)],
+    BLANK()
+)
+------------------------------------------------------------------
+Customer Sales YoY % Change = 
+VAR LastYearsSales = 
+CALCULATE(
+    [Customer Sales],
+    SAMEPERIODLASTYEAR(
+        'Calendar'[Transaction_Date]
+    )
+)
+VAR Ratio =
+DIVIDE(
+    ([Customer Sales] - LastYearsSales),
+    LastYearsSales,
+    "-"
+)
+Return
+Ratio
+------------------------------------------------------------------------------
+Last QTD Sales (4-5-4) = 
+VAR LastPeriod =
+CALCULATE(
+    [Customer Sales],
+    FILTER(
+        ALL(
+            '4-5-4 Calendar'
+        ),
+        IF(
+            SELECTEDVALUE('4-5-4 Calendar'[FiscalQuarter]) = 1,
+            '4-5-4 Calendar'[FiscalQuarter] =4 && '4-5-4 Calendar'[FiscalYear] = SELECTEDVALUE('4-5-4 Calendar'[FiscalYear]) -1,
+            '4-5-4 Calendar'[FiscalYear] = SELECTEDVALUE('4-5-4 Calendar'[FiscalYear]) &&
+            '4-5-4 Calendar'[FiscalQuarter] = SELECTEDVALUE('4-5-4 Calendar'[FiscalQuarter]) -1
+        )
+    )
+)
+RETURN
+LastPeriod
+------------------------------------------------------------------
+Last Quarter's Sales (PARALLELPERIOD) = 
+CALCULATE(
+    [Customer Sales],
+    PARALLELPERIOD(
+        'Calendar'[Transaction_Date],
+        -1,
+        QUARTER
+    )
+)
+
+--------------------------------------------------------
+Last Quarter's Sales (PREVIOUSQUARTER) = 
+CALCULATE(
+    [Customer Sales],
+    PREVIOUSQUARTER(
+        'Calendar'[Transaction_Date]
+    )
+)
+----------------------------------------
+
