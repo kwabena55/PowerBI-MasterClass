@@ -87,4 +87,40 @@ CALCULATE(
     )
 )
 ----------------------------------------
+Last Week's Sales 4-5-4 (DATEADD) = 
+CALCULATE(
+    [Customer Sales],
+    DATEADD(
+        '4-5-4 Calendar'[Date],
+        -7,
+        DAY
+    )
+)
+------------------------------------------------------
+Last Years Sales (SAMEPERIODLASTYEAR) = 
+CALCULATE(
+    [Customer Sales],
+    SAMEPERIODLASTYEAR(
+        'Calendar'[Transaction_Date]
+    )
+)
 
+----------------------------------------
+MTD Sales (4-5-4) = 
+VAR MaxDate = MAX('4-5-4 Calendar'[Date])
+VAR MaxPeriod = MAX('4-5-4 Calendar'[FiscalMonthYear])
+VAR OutPut =
+IF(
+    HASONEVALUE(
+        '4-5-4 Calendar'[FiscalMonthName]
+    ),
+    CALCULATE(
+        [Customer Sales],
+        '4-5-4 Calendar'[Date] <= MaxDate,
+        '4-5-4 Calendar'[FiscalMonthYear] = MaxPeriod
+    ),
+    "-"
+)
+RETURN
+OutPut
+---------------------------------------------------------------
