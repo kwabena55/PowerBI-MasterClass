@@ -124,3 +124,43 @@ IF(
 RETURN
 OutPut
 ---------------------------------------------------------------
+QTD Sales (4-5-4) = 
+VAR MaxDate = MAX('4-5-4 Calendar'[Date])
+VAR MaxPeriod = MAX('4-5-4 Calendar'[FiscalQuarterYear])
+VAR OutPut =
+IF(
+    HASONEVALUE(
+        '4-5-4 Calendar'[FiscalQuarterYear]
+    ),
+    CALCULATE(
+        [Customer Sales],
+        '4-5-4 Calendar'[Date] <= MaxDate,
+        '4-5-4 Calendar'[FiscalQuarterYear] = MaxPeriod
+    ),
+    "-"
+)
+RETURN
+OutPut
+--------------------------------------------------------------
+YTD Sales (4-5-4) = 
+VAR MaxDate = MAX('4-5-4 Calendar'[Date])
+VAR MaxPeriod = MAX('4-5-4 Calendar'[FiscalYear])
+VAR MaxSellDate = MAX('Sales by Store'[transaction_date])
+VAR OutPut =
+CALCULATE(
+    [Customer Sales],
+    '4-5-4 Calendar'[Date] <= MaxDate,
+    '4-5-4 Calendar'[FiscalYear] = MaxPeriod,
+    'Calendar'[Transaction_Date] <= MaxSellDate
+)
+RETURN
+OutPut
+
+------------------------------------------------------------------------
+WoW % Change (4-5-4) = 
+DIVIDE(
+    ([Customer Sales] - [Last Week's Sales 4-5-4 (DATEADD)]),
+    [Last Week's Sales 4-5-4 (DATEADD)],
+    BLANK()
+)
+----------------------------------------------------------------------------------
